@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html lang=”pt-br”>
+
+<head>
+<meta content="text/html"; charset=”iso-8859-1” http-equiv="Content-Type" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery.js"></script>
+<script language="javascript">
+    function calcular(){
+        var masc = document.getElementById("masc"); 
+        var fem = document.getElementById("fem");
+        var cri = document.getElementById("cri");
+        if ((masc.valueAsNumber+fem.valueAsNumber+cri.valueAsNumber)){
+
+            var carne = (masc.valueAsNumber*0.5 + fem.valueAsNumber*0.3 + cri.valueAsNumber*0.2);
+            var frango = (masc.valueAsNumber*0.2 + fem.valueAsNumber*0.2 + cri.valueAsNumber*0.1);
+            var ling = (masc.valueAsNumber*0.2 + fem.valueAsNumber*0.2 + cri.valueAsNumber*0.2);
+            var refr = (masc.valueAsNumber*0.3 + fem.valueAsNumber*0.4 + cri.valueAsNumber*0.2);
+            var cerv = (masc.valueAsNumber*0.8 + fem.valueAsNumber*0.5);
+
+            document.getElementById("kgcarne").textContent = carne.toFixed(1);
+            document.getElementById("kgfrango").textContent = frango.toFixed(1);
+            document.getElementById("kgling").textContent = ling.toFixed(1);
+            document.getElementById("lrefr").textContent = refr.toFixed(1);
+            document.getElementById("lcerv").textContent = cerv.toFixed(1);
+
+            document.getElementById("total").hidden = false;
+        } else{
+            document.getElementById("total").hidden = true;
+        }
+    }
+    </script>
+<title>MAPA Front End</title>
+</head>
+
+<body>
+    <p><h1><strong>MAPA</strong></h1></p>
+
+    <p></p><h2><strong>Calculadora de Churrasco</strong></h2></p>
+
+    <div>
+        <p><m1>Homens: </m1> <input type="number" required="required" min="0" step="1" id="masc"></p>
+        <p><m1>Mulheres: </m1><input type="number" required="required" min="0" step="1" id="fem"></p>
+        <p><m1>Crianças: </m1><input type="number" required="required" min="0" step="1"id="cri"></p>
+        <p><button type="button" onclick="calcular()">Calcular</button></p>
+    </div>
+
+    <div id="total" hidden> 
+        <p><m1>Quantidade de itens a serem comprados:</m1></p>
+        <p><m1 id="kgcarne"> </m1><m1>kg de carne bovina</m1></p>
+        <p><m1 id="kgfrango"> </m1><m1>kg de frango</m1></p>
+        <p><m1 id="kgling"> </m1><m1>kg de linguiça</m1></p>
+        <p><m1 id="lrefr"> </m1><m1>l de refrigerante</m1></p>
+        <p><m1 id="lcerv"> </m1><m1>l de cerveja</m1></p>
+    </div>
+
+</body>
+
+</html>
